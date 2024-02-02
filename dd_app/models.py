@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User  # Userモデルをインポート
+from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
@@ -19,6 +19,16 @@ class Video(models.Model):
     uploaded_at = models.DateTimeField(auto_now_add=True)
     # 動画が再生された回数をカウントするためのフィールド
     views = models.PositiveIntegerField(default=0)
+    # 動画がいいねされた回数をカウントするためのフィールド
+    likes = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        # テーブル名をvideoに設定
+        db_table = 'video'
+
+    def __str__(self):
+        # 動画のタイトルを返す(管理画面で表示されるカラムの設定)
+        return self.title
 
 
 class Comment(models.Model):
@@ -33,3 +43,11 @@ class Comment(models.Model):
     text = models.TextField()
     # コメントが投稿された日時を管理するためのフィールド
     created_date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        # テーブル名をcommentに設定
+        db_table = 'comment'
+
+    def __str__(self):
+        # コメントの本文を返す(管理画面で表示されるカラムの設定)
+        return self.text
