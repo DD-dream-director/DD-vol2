@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'accounts',  # accountsアプリをインストール
     'dd_app',  # dd_appをインストール
     'taggit',  # taggitをインストール
     'django_extensions',  # django-extensionsをインストール
