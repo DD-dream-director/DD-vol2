@@ -19,7 +19,7 @@ function run() {
 }
 
 function admin() {
-    open-browser
+    explorer.exe http://"$IP":"$PORT"/admin # || xdg-open http://"$IP":"$PORT"/
     python3 "$PROJECT_ROOT"/manage.py runserver
 }
 
