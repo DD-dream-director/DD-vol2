@@ -40,4 +40,10 @@ function va() {
     source ./venv/bin/activate
 }
 
+function update-model-graph() {
+    # deactivate python venv
+    python3 manage.py graph_models -a -o "$PROJECT_ROOT"/docs/UML_Graphs/ErGraph_all.png
+    python3 manage.py graph_models -o "$PROJECT_ROOT"/docs/UML_Graphs/ErGraph_dd_appOnly.png dd_app
+}
+
 alias mig="migrate"
