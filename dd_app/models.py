@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from taggit.managers import TaggableManager
 
 # Create your models here.
 
@@ -21,6 +22,8 @@ class Video(models.Model):
     views = models.PositiveIntegerField(default=0)
     # 動画がいいねされた回数をカウントするためのフィールド
     likes = models.PositiveIntegerField(default=0)
+    # タグを管理するためのフィールド
+    tags = TaggableManager()
 
     class Meta:
         # テーブル名をvideoに設定
