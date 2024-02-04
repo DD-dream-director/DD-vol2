@@ -23,7 +23,7 @@ class Video(models.Model):
     # 動画がいいねされた回数をカウントするためのフィールド
     likes = models.PositiveIntegerField(default=0)
     # タグを管理するためのフィールド
-    tags = TaggableManager()
+    tags = TaggableManager(blank=True)
 
     class Meta:
         # テーブル名をvideoに設定

@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from taggit.managers import TaggableManager
 from dd_app.models import Video
 
 
@@ -10,6 +11,8 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     # いいねした動画を保存するフィールド
     liked_video = models.ManyToManyField(Video, blank=True)
+    # タグを管理するフィールド
+    tags = TaggableManager(blank=True)
 
 
 @receiver(post_save, sender=User)
