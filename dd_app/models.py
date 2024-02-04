@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.core.exceptions import ValidationError
 from taggit.managers import TaggableManager
 
 # Create your models here.
@@ -15,7 +16,9 @@ class Video(models.Model):
     # 動画の説明を管理するためのフィールド
     description = models.TextField()
     # 動画ファイルをアップロードするためのフィールド
-    video_file = models.FileField(upload_to='videos/')
+    video_file = models.FileField(upload_to='videos/', blank=True, null=True)
+    # 動画URLを管理するためのフィールド
+    video_url = models.URLField(blank=True, null=True)
     # いつ動画がアップロードされたかを管理するためのフィールド
     uploaded_at = models.DateTimeField(auto_now_add=True)
     # 動画が再生された回数をカウントするためのフィールド
@@ -32,6 +35,10 @@ class Video(models.Model):
     def __str__(self):
         # 動画のタイトルを返す(管理画面で表示されるカラムの設定)
         return self.title
+
+    def clean(self):
+        if self.video_file is None and self.video_url is None:
+            raise ValidationError("ファイルとURLのうちどちらか一つは値が必要です")
 
 
 class Comment(models.Model):
