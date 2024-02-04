@@ -37,6 +37,8 @@ class Video(models.Model):
         return self.title
 
     def clean(self):
+        """動画ファイルと動画URLのどちらか一方が必要なことを確認するためのメソッド
+        """
         if self.video_file is None and self.video_url is None:
             raise ValidationError("ファイルとURLのうちどちらか一つは値が必要です")
 
