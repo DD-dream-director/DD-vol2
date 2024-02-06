@@ -22,11 +22,11 @@ class Video(models.Model):
     # いつ動画がアップロードされたかを管理するためのフィールド
     uploaded_at = models.DateTimeField(auto_now_add=True)
     # 動画が再生された回数をカウントするためのフィールド
-    views = models.PositiveIntegerField(default=0)
+    view = models.PositiveIntegerField(default=0)
     # 動画がいいねされた回数をカウントするためのフィールド
-    likes = models.PositiveIntegerField(default=0)
+    like = models.PositiveIntegerField(default=0)
     # タグを管理するためのフィールド
-    tags = TaggableManager(blank=True)
+    tag = TaggableManager(blank=True)
 
     class Meta:
         # テーブル名をvideoに設定

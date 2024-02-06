@@ -14,7 +14,7 @@ class UserProfile(models.Model):
     # いいねした動画を保存するフィールド
     liked_video = models.ManyToManyField(Video, blank=True)
     # タグを管理するフィールド
-    tags = TaggableManager(blank=True)
+    tag = TaggableManager(blank=True)
 
 
 @receiver(post_save, sender=User)
