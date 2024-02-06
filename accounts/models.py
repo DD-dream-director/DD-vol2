@@ -9,6 +9,8 @@ from dd_app.models import Video
 class UserProfile(models.Model):
     # ユーザー情報を保存するフィールド
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    # ユーザーのアイコン画像を管理するためのフィールド
+    icon = models.ImageField(upload_to='icons/', blank=True, null=True)
     # いいねした動画を保存するフィールド
     liked_video = models.ManyToManyField(Video, blank=True)
     # タグを管理するフィールド

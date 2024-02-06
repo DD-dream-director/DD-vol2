@@ -11,8 +11,6 @@ class Video(models.Model):
     """
     # 動画をアップロードしたユーザーを管理するためのフィールド
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    # ユーザーのアイコン画像を管理するためのフィールド
-    icon = models.ImageField(upload_to='icons/', blank=True, null=True)
     # 動画のタイトルを管理するためのフィールド
     title = models.CharField(max_length=100)
     # 動画の説明を管理するためのフィールド
