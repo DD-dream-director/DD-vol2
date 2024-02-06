@@ -10,7 +10,7 @@ class Video(models.Model):
     """動画を管理するためのORM
     """
     # 動画をアップロードしたユーザーを管理するためのフィールド
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    uploaded_by = models.ForeignKey(User, on_delete=models.CASCADE)
     # 動画のタイトルを管理するためのフィールド
     title = models.CharField(max_length=100)
     # 動画の説明を管理するためのフィールド
