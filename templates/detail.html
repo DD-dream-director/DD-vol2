@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>{{ object.title }}</h3>
+    {% if video_id %}
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video_id }}" frameborder="0" allowfullscreen></iframe>
+    {% else %}
+        <p>Invalid YouTube URL</p>
+    {% endif %}
+    <p>{{ object.likes }}</p>
+    <p>{{ object.uploaded_at }}</p>
+    <p>{{ object.description }}</p>
+    <p>{{ object.views }}</p>
+  </body>
+</html>                                                                                                 
