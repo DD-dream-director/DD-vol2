@@ -9,12 +9,15 @@
   </head>
   <body>
     <h2>Embedded YouTube Video</h2>
-    {% if video_ids %}
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video_ids }}" frameborder="0" allowfullscreen></iframe>
-        <a href="{% url 'detail' Video.pk %}">詳細へ</a>
-    {% else %}
-        <p>Invalid YouTube URL</p>
-    {% endif %}
+    {% comment %} {% if video_ids %} {% endcomment %}
+      {% for id, title, pk in ziplist %}
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ id }}" frameborder="0" allowfullscreen></iframe>
+          <h4>{{ title }}</h4>
+          <a href="{% url 'detail' video_pk=pk %}">詳細へ</a>
+      {% endfor %}
+    {% comment %} {% else %} {% endcomment %}
+        {% comment %} <p>Invalid YouTube URL</p> {% endcomment %}
+    {% comment %} {% endif %} {% endcomment %}
   </body>
 </html>
 

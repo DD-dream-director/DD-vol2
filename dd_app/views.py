@@ -8,25 +8,34 @@ import re
 
 
 class Rendering_View(View):
-    def youtube_embed(self, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         video_ids = []
-        youtube_urls = Video.objects.all()
-        for youtube_url in youtube_urls:
-            video_id_match = re.search(r'(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})', youtube_url.video_url)
+        video_titles =[]
+        video_pks = []
+        videos = Video.objects.all()
+        
+        for video in videos:
+            video_titles.append(video.title)
+            video_pks.append(video.pk)
+            video_id_match = re.search(r'(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})', video.video_url)
+
             if video_id_match:
                 video_ids.append(video_id_match.group(1))
             
-        return render(request, 'youtube_embed.html', {'video_ids': video_ids})
+            
+        ziplist = zip(video_ids, video_titles,  video_pks)
+                
+
+        return render(request, 'youtube_embed.html', {'ziplist': ziplist})
 
 
 #詳細画面
-class DetaiVideoView(DetailView):
-    template_name = 'dd_app/detail.html'
+class DetailVideoView(DetailView):
+    template_name = 'detail.html'
     model = Video
+    context_object_name = "video"
 
-    def get_object(self, queryset=None):
-        # ここで適切なオブジェクトを取得するロジックを実装します。
-        return Video.objects.get(pk=self.kwargs['pk'])
+    
 
 
     
