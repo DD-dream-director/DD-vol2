@@ -13,7 +13,9 @@
       {% for id, title, pk in ziplist %}
 
         {% comment %} {% if id == 'videos/mp4' %} {% endcomment %}
-          <video src="https://localhost:8000/media/videos/video1371386122.mp4"></video>
+        <video controls width="80%">
+          <source src="./media/videos/video1371386122.mp4" type="video/mp4">
+        </video>
         
         {% comment %} {% else %} {% endcomment %}
 
