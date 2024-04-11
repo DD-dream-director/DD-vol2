@@ -8,11 +8,11 @@
   </head>
   <body>
     <h3>{{ object.title }}</h3>
-    {% if video_id %}
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video_id }}" frameborder="0" allowfullscreen></iframe>
-    {% else %}
+    {% comment %} {% if  %} {% endcomment %}
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ youtube_video_id }}" frameborder="0" allowfullscreen></iframe>
+    {% comment %} {% else %} {% endcomment %}
         <p>Invalid YouTube URL</p>
-    {% endif %}
+    {% comment %} {% endif %} {% endcomment %}
     <p>{{ object.likes }}</p>
     <p>{{ object.uploaded_at }}</p>
     <p>{{ object.description }}</p>

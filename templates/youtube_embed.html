@@ -11,9 +11,17 @@
     <h2>Embedded YouTube Video</h2>
     {% comment %} {% if video_ids %} {% endcomment %}
       {% for id, title, pk in ziplist %}
+
+        {% comment %} {% if id == 'videos/mp4' %} {% endcomment %}
+          <video src="https://localhost:8000/media/videos/video1371386122.mp4"></video>
+        
+        {% comment %} {% else %} {% endcomment %}
+
           <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ id }}" frameborder="0" allowfullscreen></iframe>
           <h4>{{ title }}</h4>
-          <a href="{% url 'detail' video_pk=pk %}">詳細へ</a>
+          <a href="{% url 'detail' pk=pk %}">詳細へ</a>
+
+        {% comment %} {% endif %} {% endcomment %}
       {% endfor %}
     {% comment %} {% else %} {% endcomment %}
         {% comment %} <p>Invalid YouTube URL</p> {% endcomment %}
