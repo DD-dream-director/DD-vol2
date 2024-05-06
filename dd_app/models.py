@@ -13,6 +13,8 @@ class Video(models.Model):
     uploaded_by = models.ForeignKey(User, on_delete=models.CASCADE)
     # 動画のタイトルを管理するためのフィールド
     title = models.CharField(max_length=100)
+    # 動画のサムネイルをアップロードするためのフィールド
+    thumbnail = models.ImageField(upload_to="thumbnails/", blank=True, null=False)
     # 動画の説明を管理するためのフィールド
     description = models.TextField()
     # 動画ファイルをアップロードするためのフィールド
