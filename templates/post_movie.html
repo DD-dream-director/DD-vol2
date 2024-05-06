@@ -5,6 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>動画投稿フォーム</title>
+  <style>
+  </style>
+
 </head>
 
 <body>
@@ -28,21 +31,25 @@
     </div>
     <!-- 真ん中のレイアウト -->
     <div class="div-mid">
-      <div class="div-mid-popup">
-        <!-- とりあえずボタンだけ置いとく -->
-        <!-- モーダルコンテンツでサムネイルを選べるポップアップをここに作成する。 -->
-      </div>
       <div class="div-mid-videoConform">
-        <!-- videoを確認できるようにiframe等で表示する -->
+        <iframe src="ここに動画のURLを入力" width="100%" height="300" frameborder="0" allowfullscreen></iframe>
       </div>
       <div class="div-mid-tags">
-        <!-- タグの一覧をおいて、チェックボックスなどで選択できるようにする。 -->
+        <label>タグを選択:</label>
+        <input type="checkbox" id="tag1" name="tag1">
+        <label for="tag1">#タグ1</label>
+        <input type="checkbox" id="tag2" name="tag2">
+        <label for="tag2">#タグ2</label>
+        <!-- 他のタグも同様に追加 -->
       </div>
     </div>
+
+
     <!-- 一番下のレイアウト -->
     <div class="div-bottom">
       <div class="div-bottom-btn">
         <!-- ボタンタグを入れる -->
+        <button type="button" onclick="alert('投稿されました！');">投稿</button>
       </div>
     </div>
   </main>
