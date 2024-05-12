@@ -20,8 +20,12 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
+from django.urls import path, include
+
+
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("dd_app/", include("dd_app.urls")),
 ]
 
 # 動画ファイルの配信用に必要
