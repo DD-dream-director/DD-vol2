@@ -10,10 +10,6 @@ class HomeView(TemplateView):
     template_name = "home.html"
 
 
-class RegisterUserView(TemplateView):
-    template_name = "register_user.html"
-
-
 class PostMovieView(TemplateView):
     template_name = "post_movie.html"
 
