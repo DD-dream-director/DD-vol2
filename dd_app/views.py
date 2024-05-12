@@ -1,3 +1,5 @@
+from django.db.models.base import Model as Model
+from django.db.models.query import QuerySet
 from django.shortcuts import render
 from django.views.generic import TemplateView
 
