@@ -133,3 +133,5 @@ MEDIA_URL = "/media/"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+LOGIN_REDIRECT_URL = "home"  # ログイン後のリダイレクト先
+LOGOUT_REDIRECT_URL = "login"  # ログアウト後のリダイレクト先
