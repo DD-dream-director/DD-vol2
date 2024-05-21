@@ -1,1 +1,80 @@
-<h1>Signup Page</h1>
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+    <title>サインアップページ</title>
+    <style>
+      .bg-abffba {
+        background-color: #abffba;
+      }
+      
+      .bg-f9e3ff {
+        background-color: #f9e3ff;
+      }
+      
+      .bg-a6fff4 {
+        background-color: #a6fff4;
+      }
+    </style>
+  </head>
+
+  <body class="bg-dark">
+    <header>
+      <nav class="navbar navbar-expand-lg bg-abffba p-4" style="height: 10vh;">
+        <div class="container-fluid">
+          <a class="navbar-brand fw-bold p-2" href="#">Dream Directer</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a href="#" class="nav-link active text-dark fw-bold">アカウント作成</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="container-fluid">
+        <div class="row text-black bg-f9e3ff justify-content-center align-items-center" style="min-height: 90vh;">
+          <div class="col-12 text-center">
+            <div class="form-container w-50 mx-auto">
+              <form action="">
+                <div class="row mb-3">
+                  <label for="email" class="col-sm-3 col-form-label bg-a6fff4">メールアドレス</label>
+                  <div class="col-sm-9">
+                    <input type="email" class="form-control" id="email" placeholder="メールアドレスを入力" />
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="username" class="col-sm-3 col-form-label bg-a6fff4">ユーザー名</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" id="username" placeholder="ユーザー名を入力" />
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="password" class="col-sm-3 col-form-label bg-a6fff4">パスワード</label>
+                  <div class="col-sm-9">
+                    <input type="password" class="form-control" id="password" placeholder="パスワードを入力" />
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-sm-12 d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary bg-abffba text-dark fw-bold ps-5 pe-5">作成</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>
