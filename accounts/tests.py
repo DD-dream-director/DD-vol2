@@ -34,7 +34,7 @@ class SignUpViewTests(TestCase):
 
     def test_signup_redirect(self):
         """サインアップ後にタグのセッティングページにリダイレクトできているかを確認する。"""
-        res = self.client.post(
+        response = self.client.post(
             reverse("signup"),
             {
                 "username": "testuser",
@@ -43,8 +43,8 @@ class SignUpViewTests(TestCase):
                 "password2": "Testpass123",
             },
         )
-        self.assertEqual(res.status_code, 302)
-        self.assertRedirects(res, reverse("setup_tag"))
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse("setup_tag"))
 
 
 class LoginViewTests(TestCase):
