@@ -17,5 +17,5 @@ class CustomLoginView(LoginView):
 
 class SignUpView(generic.CreateView):
     form_class = SignUpForm
-    success_url = reverse_lazy("login")
+    success_url = reverse_lazy("setup_tag")
     template_name = "register_user.html"
