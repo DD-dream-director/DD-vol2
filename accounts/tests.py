@@ -19,7 +19,7 @@ class SignUpViewTests(TestCase):
         self.assertTemplateUsed(response, "register_user.html")
 
     def test_signup_form(self):
-        """フォームを使用したサインアップの動作が可能か否か"""
+        """フォームを使用したサインアップの動作が可能か否か -> DBに登録できてるか否か"""
         response = self.client.post(
             reverse("signup"),
             {
