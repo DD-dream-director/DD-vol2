@@ -10,6 +10,7 @@ class SignUpViewTests(TestCase):
     """アカウント登録バックエンドのテストコード"""
 
     def test_signup_page_status_code(self):
+        """ページが存在するか否か"""
         response = self.client.get(reverse("signup"))
         self.assertEqual(response.status_code, 200)
 
@@ -18,6 +19,7 @@ class SignUpViewTests(TestCase):
         self.assertTemplateUsed(response, "register_user.html")
 
     def test_signup_form(self):
+        """フォームを使用したサインアップの動作が可能か否か"""
         response = self.client.post(
             reverse("signup"),
             {
