@@ -32,6 +32,20 @@ class SignUpViewTests(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertTrue(User.objects.filter(username="testuser").exists())
 
+    def test_signup_redirect(self):
+        """サインアップ後にタグのセッティングページにリダイレクトできているかを確認する。"""
+        res = self.client.post(
+            reverse("signup"),
+            {
+                "username": "testuser",
+                "email": "test@example.com",
+                "password1": "Testpass123",
+                "password2": "Testpass123",
+            },
+        )
+        self.assertEqual(res.status_code, 302)
+        self.assertRedirects(res, reverse("setup_tag"))
+
 
 class LoginViewTests(TestCase):
     """ログインバックエンドのテストコード"""
