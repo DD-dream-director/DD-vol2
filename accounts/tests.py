@@ -78,3 +78,11 @@ class LoginViewTests(TestCase):
         )
         self.assertEqual(response.status_code, 200)
         self.assertFalse(response.context["user"].is_authenticated)
+
+    # ページ遷移のテスト
+    def test_login_redirect(self):
+        response = self.client.post(
+            reverse("login"), {"username": self.username, "password": self.password}
+        )
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse("home"))
