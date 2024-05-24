@@ -15,11 +15,12 @@ class SignUpViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_signup_page_template(self):
+        """指定されたテンプレートが指定されているか"""
         response = self.client.get(reverse("signup"))
         self.assertTemplateUsed(response, "register_user.html")
 
     def test_signup_form(self):
-        """フォームを使用したサインアップの動作が可能か否か -> DBに登録できてるか否か"""
+        """フォームを使用したサインアップの動作が可能か -> DBに登録できてるか否か"""
         response = self.client.post(
             reverse("signup"),
             {
@@ -44,7 +45,7 @@ class SignUpViewTests(TestCase):
             },
         )
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse("setup_tag"))
+        self.assertRedirects(response, reverse("login"))
 
 
 class LoginViewTests(TestCase):
@@ -67,14 +68,16 @@ class LoginViewTests(TestCase):
 
     def test_login_form_valid(self):
         response = self.client.post(
-            reverse("login"), {"username": self.username, "password": self.password}
+            reverse("login"), {"username": self.username,
+                               "password": self.password}
         )
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse("home"))
 
     def test_login_form_invalid(self):
         response = self.client.post(
-            reverse("login"), {"username": self.username, "password": "wrongpassword"}
+            reverse("login"), {"username": self.username,
+                               "password": "wrongpassword"}
         )
         self.assertEqual(response.status_code, 200)
         self.assertFalse(response.context["user"].is_authenticated)
@@ -82,7 +85,8 @@ class LoginViewTests(TestCase):
     # ページ遷移のテスト
     def test_login_redirect(self):
         response = self.client.post(
-            reverse("login"), {"username": self.username, "password": self.password}
+            reverse("login"), {"username": self.username,
+                               "password": self.password}
         )
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse("home"))
